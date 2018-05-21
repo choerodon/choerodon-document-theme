@@ -1,0 +1,7 @@
+name = "Choerodon"
+description = "A port of the Choerodon theme"
+homepage = "https://github.com/choerodon/choerodon-document-theme.git"
+
+
+[author]
+    name = "choerodon"

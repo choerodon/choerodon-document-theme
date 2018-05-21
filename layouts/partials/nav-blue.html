@@ -1,0 +1,50 @@
+<div class="navbar top-white-nav top-nav" role="navigation" id="navbar">
+        {{ if in .URL "docs" }}
+            <div class="navbar-left-buttons">
+                <button type="button" class="navbar-toggle btn-template-main">
+                    <i class="iconfont">&#xe78e;</i>
+                </button>
+            </div>
+        {{ end }}
+        <a class="navbar-brand" href="{{ .Site.BaseURL }}{{ .Site.Language.Lang }}">
+            <div class="nav-logo"></div>
+        </a>
+        <div class="navbar-buttons">
+            <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                <i class="iconfont">&#xe790;</i>
+            </button>
+        </div>
+
+
+        {{ $.Scratch.Set "title" "/" }}
+        {{ $.Scratch.Add "title" .Section }}
+        {{ $.Scratch.Add "title" "/" }}
+        <div class="navbar-collapse collapse" id="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                {{ range .Site.Menus.main }}
+                <li class="dropdown">
+                {{ if eq .URL ($.Scratch.Get "title") }}
+                    <a  {{ if .Post }} target="_blank" {{ end }} href="{{ .URL }}" {{ if .Post }}{{else}} class="active-page" {{ end }}>
+                        {{ .Name }}
+                    </a>
+                    {{ else }}
+                    <a  {{ if .Post }} target="_blank" {{ end }} href="{{ .URL }}">{{ .Name }}</a>
+                {{ end }}
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        <div class="global-language">
+            <a>{{ .Site.Language.Lang | upper}}</a>
+            <ul class="language-list">
+                {{ range $.Site.Home.AllTranslations }}
+                <li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+  
+    <!-- /#navbar -->
+    
+</div>
+
+<!-- *** NAVBAR END ***-->

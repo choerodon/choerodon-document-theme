@@ -1,0 +1,27 @@
+<footer id="footer" class="footer">
+    <nav class="footer-nav">
+        {{ range .Site.Menus.main }}
+            {{ if .Post }}
+                {{ else }}
+                <a href="{{ .URL }}">{{ .Name }}</a>
+            {{ end }}
+        {{ end }}
+    </nav>
+    <div class="social">
+        <a href="https://github.com/choerodon/" target="_blank" class="github"></a>
+        <a class="wechat"></a>
+        <img class="wechat-hover" src="/img/footer/wechat-code.jpg"/>
+        <a href="https://weibo.com/choerodon" target="_blank"  class="sina"></a>
+        <img class="sina-hover" src="/img/footer/sina-code.jpg"/>
+        <!--<div>
+            <a href="#" class="button">Get Kubernetes</a>
+            <a href="https://github.com/kubernetes/kubernetes" class="button">Contribute</a>
+        </div>-->
+    </div>
+    <div class="copy-right" class="center">
+        Copyright &copy; The choerodon Author&reg;. All rights reserved.
+    </div>
+    <div id="big-img" class="black-big-img">
+        <img src="" alt="">
+    </div>
+</footer>
